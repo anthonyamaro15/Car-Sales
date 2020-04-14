@@ -13,15 +13,12 @@ const App = () => {
   const { additionalPrice, car, additionalFeatures } = reducer.carReducer;
 
   const removeFeature = (item) => {
-    // dispatch an action here to remove an item
     dispatch({ type: "REMOVE_FEATURE", payload: item });
   };
 
   const buyItem = (item) => {
-    // dipsatch an action here to add an item
     dispatch({ type: "ADD_FEATURE", payload: item });
   };
-  //   console.log(reducer.carReducer);
 
   return (
     <div className="boxes">
