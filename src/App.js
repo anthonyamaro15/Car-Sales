@@ -18,7 +18,9 @@ const App = () => {
 
   const buyItem = (item) => {
     // dipsatch an action here to add an item
+    dispatch({ type: "ADD_FEATURE", payload: item });
   };
+  console.log(reducer.carReducer);
 
   return (
     <div className="boxes">
@@ -27,7 +29,10 @@ const App = () => {
         <AddedFeatures car={car} />
       </div>
       <div className="box">
-        <AdditionalFeatures additionalFeatures={additionalFeatures} />
+        <AdditionalFeatures
+          additionalFeatures={additionalFeatures}
+          buyItem={buyItem}
+        />
         <Total car={car} additionalPrice={additionalPrice} />
       </div>
     </div>
