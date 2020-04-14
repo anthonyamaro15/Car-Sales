@@ -18,22 +18,25 @@ const initialValue = {
 export const carReducer = (state = initialValue, action) => {
   switch (action.type) {
     case "ADD_FEATURE":
-      // console.log(action.payload);
       return {
         ...state,
         car: {
           ...state.car,
+          price: state.car.price + action.payload.price,
           features: [...state.car.features, action.payload],
         },
       };
     case "REMOVE_FEATURE":
-      // console.log("from rmove", action.payload);
       const filtererd = state.car.features.filter(
         (item) => item.id !== action.payload.id
       );
       console.log(filtererd);
       return {
         ...state,
+        car: {
+          ...state.car,
+          features: filtererd,
+        },
       };
     default:
       return state;
