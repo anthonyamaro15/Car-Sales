@@ -14,19 +14,20 @@ const App = () => {
 
   const removeFeature = (item) => {
     // dispatch an action here to remove an item
+    dispatch({ type: "REMOVE_FEATURE", payload: item });
   };
 
   const buyItem = (item) => {
     // dipsatch an action here to add an item
     dispatch({ type: "ADD_FEATURE", payload: item });
   };
-  console.log(reducer.carReducer);
+  //   console.log(reducer.carReducer);
 
   return (
     <div className="boxes">
       <div className="box">
         <Header car={car} />
-        <AddedFeatures car={car} />
+        <AddedFeatures car={car} removeFeature={removeFeature} />
       </div>
       <div className="box">
         <AdditionalFeatures
