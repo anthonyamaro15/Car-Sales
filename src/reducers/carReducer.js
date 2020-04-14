@@ -30,11 +30,14 @@ export const carReducer = (state = initialValue, action) => {
       const filtererd = state.car.features.filter(
         (item) => item.id !== action.payload.id
       );
-      console.log(filtererd);
+      const removePrice = state.car.features.find(
+        (item) => item.price === action.payload.price
+      );
       return {
         ...state,
         car: {
           ...state.car,
+          price: state.car.price - removePrice.price,
           features: filtererd,
         },
       };
